@@ -49,7 +49,8 @@ export class Inputs extends Component {
 
   render() {
     return (
-      <div className='container center'>
+      <div className='center'>
+        <h3 className='input-header'>Inputs</h3>
         <form className='form-group'>
           <label for='width' className='input-label'>Width</label>
           <input id='width' type='number' className='form-control input-field'

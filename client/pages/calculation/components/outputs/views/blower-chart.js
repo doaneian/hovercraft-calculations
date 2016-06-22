@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import ReactHighcharts from 'react-highcharts';
 
 export class BlowerChart extends Component {
-  constructor(props, context) {
-    super(props, context)
-
-    this.state = {
-      activePoint: null,
-      tooltipTrigger: null,
-    }
-  }
-
   getXAxisLabels() {
     let xAxisLabels = [];
     for(let i = .5; i <= 2.5; i+=.25) {

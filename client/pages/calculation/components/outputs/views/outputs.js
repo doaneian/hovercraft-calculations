@@ -7,7 +7,7 @@ export class Outputs extends Component {
 
   render() {
     return (
-      <div className='container center outputs'>
+      <div className='center outputs'>
         <h3>Nozzle Area</h3>
         <table className='table table-bordered output-table'>
           <tbody>
@@ -65,7 +65,7 @@ export class Outputs extends Component {
             </tr>
           </tbody>
         </table>
-        <div className='container blower-chart'>
+        <div className='blower-chart'>
           <BlowerChart pressure={this.props.pressure} flowRate={this.props.flowRate} />
         </div>
       </div>
