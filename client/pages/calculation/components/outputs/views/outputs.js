@@ -6,6 +6,8 @@ require('./outputs.less');
 export class Outputs extends Component {
 
   render() {
+    var blowerOutputPressures = [.25, .50, .75, 1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50];
+
     return (
       <div className='center outputs'>
         <h3>Nozzle Area</h3>
@@ -27,42 +29,12 @@ export class Outputs extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className='blower-specs-pressure'>.50</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / .5).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>.75</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / .75).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>1.00</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / 1).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>1.25</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / 1.25).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>1.50</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / 1.5).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>1.75</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / 1.75).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>2.00</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / 2).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>2.25</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / 2.25).toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td className='blower-specs-pressure'>2.50</td>
-              <td>{Number((this.props.flowRate * this.props.pressure) / 2.5).toFixed(2)}</td>
-            </tr>
+            {blowerOutputPressures.map((blowerOutputPressure) =>
+              <tr>
+                <td className='blower-specs-pressure'>{Number(blowerOutputPressure).toFixed(2)}</td>
+                <td>{Number((this.props.flowRate * this.props.pressure) / blowerOutputPressure).toFixed(2)}</td>
+              </tr>
+            )}
           </tbody>
         </table>
         <div className='blower-chart'>
