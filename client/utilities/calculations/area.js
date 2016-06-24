@@ -1,9 +1,14 @@
-import {airDensity} from '../../config/app-constants';
+var airDensity = require('../../config/app-constants').airDensity;
 
-export function calculateArea(length, width) {
+function calculateArea(length, width) {
   return Number(length) * Number(width);
 }
 
-export function calculateNozzleArea(thrust, velocity) {
+function calculateNozzleArea(thrust, velocity) {
   return Number(thrust) / (Math.pow(Number(velocity), 2) * airDensity);
+}
+
+module.exports = {
+  calculateArea,
+  calculateNozzleArea
 }
