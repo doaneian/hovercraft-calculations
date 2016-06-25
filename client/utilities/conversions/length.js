@@ -1,4 +1,4 @@
-export function convertToStandardLength(length, units) {
+function convertToStandardLength(length, units) {
   if (units === 'ft') {
     return Number(length * .3048);
   }
@@ -11,4 +11,8 @@ export function convertToStandardLength(length, units) {
   if (units === 'm') {
     return Number(length);
   }
+}
+
+module.exports = {
+  convertToStandardLength
 }

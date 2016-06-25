@@ -1,10 +1,10 @@
-import {convertToStandardWeight} from '../conversions/weight';
-import {convertToRadians} from '../conversions/angle';
-import {convertToStandardForce} from '../conversions/force';
+var convertToStandardWeight = require('../conversions/weight').convertToStandardWeight;
+var convertToRadians = require('../conversions/angle').convertToRadians;
+var convertToStandardForce = require('../conversions/force').convertToStandardForce;
 
-export function calculateForceForSlope(angle, units, weight, weightUnits, forceUnits) {
-  let standardWeight = convertToStandardWeight(weight, weightUnits);
-  let radians = convertToRadians(angle, units);
+function calculateForceForSlope(angle, units, weight, weightUnits, forceUnits) {
+  var standardWeight = convertToStandardWeight(weight, weightUnits);
+  var radians = convertToRadians(angle, units);
   const force = Math.sin(radians) * standardWeight * 9.8;
 
   if (forceUnits === 'lbs') {
@@ -14,9 +14,9 @@ export function calculateForceForSlope(angle, units, weight, weightUnits, forceU
   return force;
 }
 
-export function calculateSlopeForForce(thrust, units, weight, weightUnits, angleUnits) {
-  let standardWeight = convertToStandardWeight(weight, weightUnits);
-  let standardThrust = convertToStandardForce(thrust, units);
+function calculateSlopeForForce(thrust, units, weight, weightUnits, angleUnits) {
+  var standardWeight = convertToStandardWeight(weight, weightUnits);
+  var standardThrust = convertToStandardForce(thrust, units);
   const angle = Math.asin(standardThrust / (standardWeight * 9.8));
 
   if (angleUnits === 'degrees') {
@@ -24,4 +24,9 @@ export function calculateSlopeForForce(thrust, units, weight, weightUnits, angle
   }
 
   return angle;
+}
+
+module.exports = {
+  calculateForceForSlope,
+  calculateSlopeForForce
 }

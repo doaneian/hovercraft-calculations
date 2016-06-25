@@ -1,5 +1,9 @@
-import {airDensity} from '../../config/app-constants';
+var airDensity = require('../../config/app-constants').airDensity;
 
-export function calculateVelocity(pressure) {
+function calculateVelocity(pressure) {
   return Math.sqrt((2 * pressure) / airDensity);
+}
+
+module.exports = {
+  calculateVelocity
 }

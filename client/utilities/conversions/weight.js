@@ -1,4 +1,4 @@
-export function convertToStandardWeight(weight, units) {
+function convertToStandardWeight(weight, units) {
   if (units === 'lbs') {
     return Number(weight) * .454;
   }
@@ -11,4 +11,8 @@ export function convertToStandardWeight(weight, units) {
   if (units === 'kg') {
     return Number(weight);
   }
+}
+
+module.exports = {
+  convertToStandardWeight
 }
