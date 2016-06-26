@@ -1,6 +1,14 @@
-.app-block {
+.main-block {
   padding: 30px;
   width: 500px;
+}
+
+.bullet-point {
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
 }
 
 .navbar-nav > li > a:hover,
