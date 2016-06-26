@@ -10,6 +10,7 @@ const App = () => (
           <ul className='nav navbar-nav'>
             <li><a href='index.html'>How it Works</a></li>
             <li className='active'><a href='calculations.html'>Calculations</a></li>
+            <li><a href='calculations-explanation.html'>Calculations Explanation</a></li>
           </ul>
       </div>
     </nav>
