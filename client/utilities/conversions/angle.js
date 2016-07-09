@@ -1,8 +1,10 @@
+var unitLabels = require('../../config/app-constants').units;
+
 function convertToRadians(angle, angleUnits) {
-  if (angleUnits === 'degrees') {
+  if (angleUnits === unitLabels.degrees) {
     return Number(angle) * Math.PI / 180;
   }
-  if (angleUnits === 'radians') {
+  if (angleUnits === unitLabels.radians) {
     return Number(angle);
   }
 }

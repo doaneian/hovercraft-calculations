@@ -1,14 +1,16 @@
+var unitLabels = require('../../config/app-constants').units;
+
 function convertToStandardLength(length, units) {
-  if (units === 'ft') {
+  if (units === unitLabels.feet) {
     return Number(length * .3048);
   }
-  if (units === 'in') {
+  if (units === unitLabels.inches) {
     return Number(length * .0254);
   }
-  if (units === 'cm') {
+  if (units === unitLabels.centimeters) {
     return Number(length / 100);
   }
-  if (units === 'm') {
+  if (units === unitLabels.meters) {
     return Number(length);
   }
 }

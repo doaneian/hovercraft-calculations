@@ -1,14 +1,16 @@
+var unitLabels = require('../../config/app-constants').units;
+
 function convertToStandardWeight(weight, units) {
-  if (units === 'lbs') {
+  if (units === unitLabels.pounds) {
     return Number(weight) * .454;
   }
-  if (units === 'oz') {
+  if (units === unitLabels.ounces) {
     return Number(weight) * .0283;
   }
-  if (units === 'g') {
+  if (units === unitLabels.grams) {
     return Number(weight) / 1000;
   }
-  if (units === 'kg') {
+  if (units === unitLabels.kilograms) {
     return Number(weight);
   }
 }
