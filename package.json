@@ -6,13 +6,14 @@
   "scripts": {
     "start": "webpack --progress && node server.js",
     "build": "webpack --progress",
-    "test": "echo \"Error: no test exists\" && exit 1"
+    "test": "mocha ./**/*.spec.js"
   },
   "author": "Ian Doane",
   "license": "individual",
   "devDependencies": {
     "babel-core": "^5.8.23",
     "babel-loader": "^5.3.2",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
