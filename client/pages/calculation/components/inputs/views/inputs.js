@@ -1,11 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {saveInputs} from '../actions/inputs.actions';
 import {calculateForceForSlope, calculateSlopeForForce} from '../../../../../utilities/calculations/slope';
 require('./inputs.less');
 var unitLabels = require('../../../../../config/app-constants').units;
 
+var inputsPropTypes = {
+  width: PropTypes.Number,
+  widthUnits: PropTypes.string,
+  length: PropTypes.Number,
+  lengthUnits: PropTypes.string,
+  weight: PropTypes.number,
+  weightUnits: PropTypes.string,
+  desiredSlope: PropTypes.Number,
+  desiredSlopeUnits: PropTypes.string,
+  desiredThrust: PropTypes.Number,
+  desiredThrustUnits: PropTypes.string
+};
+
 export class Inputs extends Component {
+
   saveSlopeToState() {
     const angle = document.getElementById('desiredSlope').value;
     const angleUnits = document.getElementById('desiredSlopeUnits').value;
@@ -55,9 +69,9 @@ export class Inputs extends Component {
         <form className='form-group'>
           <label for='width' className='input-label'>Width</label>
           <input id='width' type='number' className='form-control input-field'
-            onChange={() => this.saveInputsToState()} />
+            onChange={() => this.saveInputsToState()} value={this.props.width} />
           <select id='widthUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveInputsToState()}>
+            onChange={() => this.saveInputsToState()} value={this.props.widthUnits}>
             <option value={unitLabels.feet}>ft</option>
             <option value={unitLabels.inches}>in</option>
             <option value={unitLabels.meters}>m</option>
@@ -66,9 +80,9 @@ export class Inputs extends Component {
           <br />
           <label for='length' className='input-label'>Length</label>
           <input id='length' type='number' className='form-control input-field'
-            onChange={() => this.saveInputsToState()} />
+            onChange={() => this.saveInputsToState()} value={this.props.length} />
           <select id='lengthUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveInputsToState()}>
+            onChange={() => this.saveInputsToState()} value={this.props.lengthUnits}>
             <option value={unitLabels.feet}>ft</option>
             <option value={unitLabels.inches}>in</option>
             <option value={unitLabels.meters}>m</option>
@@ -77,9 +91,9 @@ export class Inputs extends Component {
           <br />
           <label for='weight' className='input-label'>Weight</label>
           <input id='weight' type='number' className='form-control input-field'
-            onChange={() => this.saveSlopeToState()} />
+            onChange={() => this.saveSlopeToState()} value={this.props.weight} />
           <select id='weightUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveSlopeToState()}>
+            onChange={() => this.saveSlopeToState()} value={this.props.weightUnits}>
             <option value={unitLabels.pounds}>lbs</option>
             <option value={unitLabels.ounces}>oz</option>
             <option value={unitLabels.kilograms}>kg</option>
@@ -88,18 +102,18 @@ export class Inputs extends Component {
           <br />
           <label for='desiredSlope' className='input-label'>Desired Slope</label>
           <input id='desiredSlope' type='number' className='form-control input-field'
-            onChange={() => this.saveSlopeToState()} />
+            onChange={() => this.saveSlopeToState()} value={this.props.desiredSlope} />
           <select id='desiredSlopeUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveSlopeToState()}>
+            onChange={() => this.saveSlopeToState()} value={this.props.desiredSlopeUnits}>
             <option value={unitLabels.degrees}>degrees</option>
             <option value={unitLabels.radians}>radians</option>
           </select>
           <br />
           <label for='desiredThrust' className='input-label'>Desired Thrust</label>
           <input id='desiredThrust' type='number' className='form-control input-field'
-            onChange={() => this.saveThrustToState()} />
+            onChange={() => this.saveThrustToState()} value={this.props.desiredThrust} />
           <select id='desiredThrustUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveThrustToState()}>
+            onChange={() => this.saveThrustToState()} value={this.props.desiredThrustUnits}>
             <option value={unitLabels.poundsForce}>lbs</option>
             <option value={unitLabels.newtons}>N</option>
           </select>
@@ -116,6 +130,16 @@ const propTypes = {
 const mapStateToProps = (state) => {
   const calculationsReducer = state.calculationsReducer.toJS();
   return {
+    width: calculationsReducer.inputs.width,
+    widthUnits: calculationsReducer.inputs.widthUnits,
+    length: calculationsReducer.inputs.length,
+    lengthUnits: calculationsReducer.inputs.lengthUnits,
+    weight: calculationsReducer.inputs.weight,
+    weightUnits: calculationsReducer.inputs.weightUnits,
+    desiredSlope: calculationsReducer.inputs.desiredSlope,
+    desiredSlopeUnits: calculationsReducer.inputs.desiredSlopeUnits,
+    desiredThrust: calculationsReducer.inputs.desiredThrust,
+    desiredThrustUnits: calculationsReducer.inputs.desiredThrustUnits
   };
 };
 

@@ -9,9 +9,9 @@ const App = () => (
     <nav className='navbar'>
       <div className='container-fluid'>
           <ul className='nav navbar-nav'>
-            <li><Link to='/how-it-works'>How it Works</Link></li>
-            <li className='active'><Link to='/'>Calculations</Link></li>
-            <li><a href='calculations-explanation.html'>Calculations Explanation</a></li>
+            <li><Link to='/'>How it Works</Link></li>
+            <li className='active'><Link to='/calculations'>Calculations</Link></li>
+            <li><Link to='/calculations-explanation'>Calculations Explanation</Link></li>
           </ul>
       </div>
     </nav>

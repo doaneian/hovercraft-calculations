@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router'
+import {Link} from 'react-router';
 require('./how-it-works.less');
 
 const HowItWorks = () => (
@@ -7,9 +7,9 @@ const HowItWorks = () => (
     <nav className='navbar'>
       <div className='container-fluid'>
           <ul className='nav navbar-nav'>
-            <li className='active'><Link to='/how-it-works'>How it Works</Link></li>
-            <li><Link to='/'>Calculations</Link></li>
-            <li><a href='calculations-explanation.html'>Calculations Explanation</a></li>
+            <li className='active'><Link to='/'>How it Works</Link></li>
+            <li><Link to='/calculations'>Calculations</Link></li>
+            <li><Link to='/calculations-explanation'>Calculations Explanation</Link></li>
           </ul>
       </div>
     </nav>
@@ -25,7 +25,7 @@ const HowItWorks = () => (
         becomes the nozzle and provides the thrust
       </li>
       <li className='bullet-point'>
-        Use the <a href='calculations.html'>calculator</a> to determine the
+        Use the <Link to='/calculations'>calculator</Link> to determine the
         blower specs that you will need
       </li>
     </ul>
