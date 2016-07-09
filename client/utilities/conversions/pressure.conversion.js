@@ -1,5 +1,7 @@
+var conversionFactors = require('../../config/app-constants').conversionFactors;
+
 function convertPascalsToInchesWater(pressure) {
-  return Number(pressure) * .00402;
+  return Number(pressure) * conversionFactors.pascalsToInchesWater;
 }
 
 module.exports = {

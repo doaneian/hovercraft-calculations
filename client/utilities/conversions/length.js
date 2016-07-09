@@ -1,14 +1,15 @@
 var unitLabels = require('../../config/app-constants').units;
+var conversionFactors = require('../../config/app-constants').conversionFactors;
 
 function convertToStandardLength(length, units) {
   if (units === unitLabels.feet) {
-    return Number(length * .3048);
+    return Number(length * conversionFactors.feetToMeters);
   }
   if (units === unitLabels.inches) {
-    return Number(length * .0254);
+    return Number(length * conversionFactors.inchesToMeters);
   }
   if (units === unitLabels.centimeters) {
-    return Number(length / 100);
+    return Number(length * conversionFactors.centimetersToMeters);
   }
   if (units === unitLabels.meters) {
     return Number(length);
