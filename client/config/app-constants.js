@@ -15,7 +15,23 @@ const units = {
   meters: 'm'
 }
 
+const conversionFactors = {
+  degreesToRadians: Math.PI / 180,
+  radiansToDegrees: 180 / Math.PI,
+  poundsForceToNewtons: 4.44,
+  newtonsToPoundsForce: .225,
+  feetToMeters: .3048,
+  inchesToMeters: .0254,
+  centimetersToMeters: .01,
+  pascalsToInchesWater: .00402,
+  poundsToKilograms: .454,
+  ouncesToKilograms: .0283,
+  gramsToKilograms: .001,
+  metersCubedPerSecondToCFM: 2118.88
+}
+
 module.exports = {
   airDensity,
-  units
+  units,
+  conversionFactors
 }

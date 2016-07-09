@@ -1,6 +1,8 @@
+var conversionFactors = require('../../config/app-constants').conversionFactors;
+
+// Accepts area in m^2, velocity in m/s, and returns flowrate in CFM
 function calculateFlowRate(area, velocity) {
-  // Flowrate = A*V, then multiply by 2188.88 to convert to CFM
-  return (Number(area) * Number(velocity)) * 2118.88;
+  return (Number(area) * Number(velocity)) * conversionFactors.metersCubedPerSecondToCFM;
 }
 
 module.exports = {
