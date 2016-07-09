@@ -1,7 +1,7 @@
 # Synopsis
 This webapp describes how to build a hovercraft.  It provides an overview page,
 which describes what you need to know when building a hovercraft.  A calculations
-page is provided which calculates what blower specs and nozzle size are needed.
+page is provided which calculates what blower specs and nozzle size are needed.  
 A page is also provided for those wanting to dive deeper into how the blower specs
 and nozzle area are calculated.
 
