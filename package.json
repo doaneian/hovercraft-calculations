@@ -4,7 +4,7 @@
   "description": "Webapp to calculate blower specs for a hovercraft",
   "main": "lib/main.js",
   "scripts": {
-    "start": "webpack --progress && node server.js",
+    "start": "echo front-end application only",
     "build": "webpack --progress",
     "test": "mocha ./**/*.spec.js"
   },

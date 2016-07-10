@@ -21,7 +21,7 @@ file in your browser.
 ```
 $ git clone https://github.com/doaneian/hovercraft-calculations.git
 $ npm install
-$ webpack
+$ npm run build
 ```
 
 # Tests
