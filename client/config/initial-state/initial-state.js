@@ -1,15 +1,17 @@
+var units = require('../app-constants').units;
+
 export const calculationsInitialState = {
   inputs: {
-    width: null,
-    widthUnits: null,
-    length: null,
-    lengthUnits: null,
-    weight: null,
-    weightUnits: null,
-    desiredSlope: null,
-    desiredSlopeUnits: null,
-    desiredThrust: null,
-    desiredThrustUnits: null
+    width: '',
+    widthUnits: units.feet,
+    length: '',
+    lengthUnits: units.feet,
+    weight: '',
+    weightUnits: units.pounds,
+    desiredSlope: '',
+    desiredSlopeUnits: units.degrees,
+    desiredThrust: '',
+    desiredThrustUnits: units.poundsForce
   },
   inputsStandardUnits: {
     widthMeters: null,

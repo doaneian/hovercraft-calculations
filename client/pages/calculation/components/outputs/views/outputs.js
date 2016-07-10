@@ -30,7 +30,7 @@ export class Outputs extends Component {
           </thead>
           <tbody>
             {blowerOutputPressures.map((blowerOutputPressure) =>
-              <tr>
+              <tr key={blowerOutputPressure}>
                 <td className='blower-specs-pressure'>{Number(blowerOutputPressure).toFixed(2)}</td>
                 <td>{Number((this.props.flowRate * this.props.pressure) / blowerOutputPressure).toFixed(2)}</td>
               </tr>

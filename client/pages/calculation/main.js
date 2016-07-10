@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route} from 'react-router';
+import {Router, Route, hashHistory} from 'react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -12,7 +12,7 @@ let store = createStore(calculationsReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={hashHistory}>
       <Route path="/" component={HowItWorks} />
       <Route path="/calculations" component={App} />
       <Route path="/calculations-explanation" component={CalculationsExplanation} />
