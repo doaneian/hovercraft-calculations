@@ -44,9 +44,7 @@ export class BlowerChart extends Component {
     };
 
     return (
-      <div>
-        <ReactHighcharts config={config}></ReactHighcharts>
-      </div>
+      <ReactHighcharts config={config}></ReactHighcharts>
     )
   }
 }

@@ -67,7 +67,7 @@ export class Inputs extends Component {
       <div className='center'>
         <h3 className='input-header'>Inputs</h3>
         <form className='form-group'>
-          <label for='width' className='input-label'>Width</label>
+          <label htmlFor='width' className='input-label'>Width</label>
           <input id='width' type='number' className='form-control input-field'
             onChange={() => this.saveInputsToState()} value={this.props.width} />
           <select id='widthUnits' className='units-field form-control dropdown'
@@ -78,7 +78,7 @@ export class Inputs extends Component {
             <option value={unitLabels.centimeters}>cm</option>
           </select>
           <br />
-          <label for='length' className='input-label'>Length</label>
+          <label htmlFor='length' className='input-label'>Length</label>
           <input id='length' type='number' className='form-control input-field'
             onChange={() => this.saveInputsToState()} value={this.props.length} />
           <select id='lengthUnits' className='units-field form-control dropdown'
@@ -89,7 +89,7 @@ export class Inputs extends Component {
             <option value={unitLabels.centimeters}>cm</option>
           </select>
           <br />
-          <label for='weight' className='input-label'>Weight</label>
+          <label htmlFor='weight' className='input-label'>Weight</label>
           <input id='weight' type='number' className='form-control input-field'
             onChange={() => this.saveSlopeToState()} value={this.props.weight} />
           <select id='weightUnits' className='units-field form-control dropdown'
@@ -100,7 +100,7 @@ export class Inputs extends Component {
             <option value={unitLabels.grams}>g</option>
           </select>
           <br />
-          <label for='desiredSlope' className='input-label'>Desired Slope</label>
+          <label htmlFor='desiredSlope' className='input-label'>Desired Slope</label>
           <input id='desiredSlope' type='number' className='form-control input-field'
             onChange={() => this.saveSlopeToState()} value={this.props.desiredSlope} />
           <select id='desiredSlopeUnits' className='units-field form-control dropdown'
@@ -109,7 +109,7 @@ export class Inputs extends Component {
             <option value={unitLabels.radians}>radians</option>
           </select>
           <br />
-          <label for='desiredThrust' className='input-label'>Desired Thrust</label>
+          <label htmlFor='desiredThrust' className='input-label'>Desired Thrust</label>
           <input id='desiredThrust' type='number' className='form-control input-field'
             onChange={() => this.saveThrustToState()} value={this.props.desiredThrust} />
           <select id='desiredThrustUnits' className='units-field form-control dropdown'
