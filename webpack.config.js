@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  entry: './client/pages/calculation/main.js',
+  entry: './client/pages/main.js',
   output: {
     path: './lib',
     filename: 'main.js'

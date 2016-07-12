@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router';
 import Inputs from './inputs/views/inputs';
 import Outputs from './outputs/views/outputs';
-require('./App.less');
+require('./calculations.less');
 
-const App = () => (
+const Calculations = () => (
   <div className='container center app-block'>
     <nav className='navbar'>
       <div className='container-fluid'>
@@ -20,4 +20,4 @@ const App = () => (
   </div>
 );
 
-export default App;
+export default Calculations;
