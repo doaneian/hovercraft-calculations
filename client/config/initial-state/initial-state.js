@@ -1,4 +1,4 @@
-var units = require('../app-constants').units;
+var units = require('client/config/app-constants').units;
 
 export const calculationsInitialState = {
   inputs: {

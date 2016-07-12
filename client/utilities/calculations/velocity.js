@@ -1,4 +1,4 @@
-var airDensity = require('../../config/app-constants').airDensity;
+var airDensity = require('client/config/app-constants').airDensity;
 
 // Accepts pressure in Pascals, retrns velocity in m/s
 function calculateVelocity(pressure) {

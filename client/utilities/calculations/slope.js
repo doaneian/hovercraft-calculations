@@ -1,7 +1,7 @@
-var convertToStandardWeight = require('../conversions/weight').convertToStandardWeight;
-var convertToRadians = require('../conversions/angle').convertToRadians;
-var convertToStandardForce = require('../conversions/force').convertToStandardForce;
-var conversionFactors = require('../../config/app-constants').conversionFactors;
+var convertToStandardWeight = require('client/utilities/conversions/weight').convertToStandardWeight;
+var convertToRadians = require('client/utilities/conversions/angle').convertToRadians;
+var convertToStandardForce = require('client/utilities/conversions/force').convertToStandardForce;
+var conversionFactors = require('client/config/app-constants').conversionFactors;
 
 function calculateForceForSlope(angle, units, weight, weightUnits, forceUnits) {
   var standardWeight = convertToStandardWeight(weight, weightUnits);
