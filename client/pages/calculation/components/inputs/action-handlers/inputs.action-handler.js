@@ -1,13 +1,13 @@
 import {fromJS} from 'immutable';
-import {convertToStandardLength} from '../../../../../utilities/conversions/length';
-import {convertToStandardWeight} from '../../../../../utilities/conversions/weight';
-import {convertToRadians} from '../../../../../utilities/conversions/angle';
-import {convertToStandardForce} from '../../../../../utilities/conversions/force';
-import {convertPascalsToInchesWater} from '../../../../../utilities/conversions/pressure.conversion';
-import {calculateArea, calculateNozzleArea} from '../../../../../utilities/calculations/area';
-import {calculatePressure} from '../../../../../utilities/calculations/pressure';
-import {calculateVelocity} from '../../../../../utilities/calculations/velocity';
-import {calculateFlowRate} from '../../../../../utilities/calculations/flowrate';
+import {convertToStandardLength} from 'client/utilities/conversions/length';
+import {convertToStandardWeight} from 'client/utilities/conversions/weight';
+import {convertToRadians} from 'client/utilities/conversions/angle';
+import {convertToStandardForce} from 'client/utilities/conversions/force';
+import {convertPascalsToInchesWater} from 'client/utilities/conversions/pressure.conversion';
+import {calculateArea, calculateNozzleArea} from 'client/utilities/calculations/area';
+import {calculatePressure} from 'client/utilities/calculations/pressure';
+import {calculateVelocity} from 'client/utilities/calculations/velocity';
+import {calculateFlowRate} from 'client/utilities/calculations/flowrate';
 
 export function saveInputs(state, action) {
   let newState = fromJS(state);

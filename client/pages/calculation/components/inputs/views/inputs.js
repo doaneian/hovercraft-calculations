@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {saveInputs} from '../actions/inputs.actions';
-import {calculateForceForSlope, calculateSlopeForForce} from '../../../../../utilities/calculations/slope';
+import {calculateForceForSlope, calculateSlopeForForce} from 'client/utilities/calculations/slope';
 require('./inputs.less');
-var unitLabels = require('../../../../../config/app-constants').units;
+import {units as unitLabels} from 'client/config/app-constants';
 
 var inputsPropTypes = {
   width: PropTypes.Number,

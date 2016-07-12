@@ -1,5 +1,5 @@
-var unitLabels = require('../../config/app-constants').units;
-var conversionFactors = require('../../config/app-constants').conversionFactors;
+var unitLabels = require('client/config/app-constants').units;
+var conversionFactors = require('client/config/app-constants').conversionFactors;
 
 function convertToRadians(angle, angleUnits) {
   if (angleUnits === unitLabels.degrees) {

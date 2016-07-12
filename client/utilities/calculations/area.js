@@ -1,4 +1,4 @@
-var airDensity = require('../../config/app-constants').airDensity;
+var airDensity = require('client/config/app-constants').airDensity;
 
 function calculateArea(length, width) {
   return Number(length) * Number(width);

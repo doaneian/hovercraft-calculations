@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   entry: './client/pages/calculation/main.js',
@@ -20,7 +21,11 @@ module.exports = {
     ]
   },
   resolve: {
+    alias: {
+      client: path.resolve('./client')
+    },
     extensions: ['', '.js', '.jsx']
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  watch: true
 };
