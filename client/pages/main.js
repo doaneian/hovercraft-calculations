@@ -3,10 +3,10 @@ import {Router, Route, hashHistory} from 'react-router';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import Calculations from 'client/pages/calculation/components/calculations';
+import Calculations from 'client/pages/calculations/calculations';
 import HowItWorks from 'client/pages/how-it-works/how-it-works';
 import CalculationsExplanation from 'client/pages/calculations-explanation/calculations-explanation';
-import calculationsReducer from 'client/pages/calculation/components/inputs/reducers';
+import calculationsReducer from 'client/pages/calculations/components/inputs/reducers';
 
 let store = createStore(calculationsReducer);
 

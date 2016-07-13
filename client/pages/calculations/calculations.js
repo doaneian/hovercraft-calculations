@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import Inputs from './inputs/views/inputs';
-import Outputs from './outputs/views/outputs';
+import Inputs from './components/inputs/views/inputs';
+import Outputs from './components/outputs/views/outputs';
 require('./calculations.less');
 
 const Calculations = () => (
