@@ -71,7 +71,7 @@ const CalculationsExplanation = () => (
         </div>
         which can be rearranged to
         <div className='equation'>
-          Volume<sub>standardized</sub> = (Volume<sub>calculated</sub> * P<sub>calculated</sub>) / (P<sub>standardized</sub>)
+          Volume<sub>standardized</sub> = (Volume<sub>calculated</sub> * P<sub>calculated</sub>) / P<sub>standardized</sub>
         </div>
         so we can calculate the volume at each pressure we want to plot.
       </li>
