@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {saveInputs} from '../actions/inputs.actions';
 import {calculateForceForSlope, calculateSlopeForForce} from 'client/utilities/calculations/slope';
 require('./inputs.less');
+require('client/common/styles/toggle.less');
 import {units as unitLabels} from 'client/config/app-constants';
 
 var inputsPropTypes = {
@@ -22,23 +23,23 @@ export class Inputs extends Component {
 
   saveSlopeToState() {
     const angle = document.getElementById('desiredSlope').value;
-    const angleUnits = document.getElementById('desiredSlopeUnits').value;
+    const angleUnits = this.getSlopeUnits();
     const weight = document.getElementById('weight').value;
-    const weightUnits = document.getElementById('weightUnits').value;
-    const forceUnits = document.getElementById('desiredThrustUnits').value;
+    const weightUnits = this.getWeightUnits();
+    const thrustUnits = this.getThrustUnits();
 
     document.getElementById('desiredThrust').value = Number(calculateForceForSlope(angle,
-      angleUnits, weight, weightUnits, forceUnits)).toFixed(2);
+      angleUnits, weight, weightUnits, thrustUnits)).toFixed(2);
 
     this.saveInputsToState();
   }
 
   saveThrustToState() {
     const thrust = document.getElementById('desiredThrust').value;
-    const thrustUnits = document.getElementById('desiredThrustUnits').value;
+    const thrustUnits = this.getThrustUnits();
     const weight = document.getElementById('weight').value;
-    const weightUnits = document.getElementById('weightUnits').value;
-    const angleUnits = document.getElementById('desiredSlopeUnits').value;
+    const weightUnits = this.getWeightUnits();
+    const angleUnits = this.getSlopeUnits();
 
     document.getElementById('desiredSlope').value = Number(calculateSlopeForForce(thrust,
       thrustUnits, weight, weightUnits, angleUnits)).toFixed(2);
@@ -48,18 +49,59 @@ export class Inputs extends Component {
 
   saveInputsToState() {
     const width = document.getElementById('width').value;
-    const widthUnits = document.getElementById('widthUnits').value;
+    const widthUnits = this.getWidthUnits();
     const length = document.getElementById('length').value;
-    const lengthUnits = document.getElementById('lengthUnits').value;
+    const lengthUnits = this.getLengthUnits();
     const weight = document.getElementById('weight').value;
-    const weightUnits = document.getElementById('weightUnits').value;
+    const weightUnits = this.getWeightUnits()
+    ;
     const desiredSlope = document.getElementById('desiredSlope').value;
-    const desiredSlopeUnits = document.getElementById('desiredSlopeUnits').value;
+    const desiredSlopeUnits = this.getSlopeUnits();
     const desiredThrust = document.getElementById('desiredThrust').value;
-    const desiredThrustUnits = document.getElementById('desiredThrustUnits').value;
+    const desiredThrustUnits = this.getThrustUnits();
 
     this.props.saveInputs(width, widthUnits, length, lengthUnits, weight, weightUnits,
       desiredSlope, desiredSlopeUnits, desiredThrust, desiredThrustUnits);
+  }
+
+  getWidthUnits() {
+    if(document.getElementById('widthUnitsStandard').checked) {
+      return unitLabels.feet;
+    } else if(document.getElementById('widthUnitsMetric').checked) {
+      return unitLabels.meters;
+    }
+  }
+
+  getLengthUnits() {
+    if(document.getElementById('lengthUnitsStandard').checked) {
+      return unitLabels.feet;
+    } else if(document.getElementById('lengthUnitsMetric').checked) {
+      return unitLabels.meters;
+    }
+  }
+
+  getWeightUnits() {
+    if(document.getElementById('weightUnitsStandard').checked) {
+      return unitLabels.pounds;
+    } else if(document.getElementById('weightUnitsMetric').checked) {
+      return unitLabels.kilograms;
+    }
+  }
+
+  getSlopeUnits() {
+    if(document.getElementById('slopeUnitsStandard').checked) {
+      return unitLabels.degrees;
+    } else if(document.getElementById('slopeUnitsMetric').checked) {
+      return unitLabels.radians;
+    }
+  }
+
+  getThrustUnits() {
+    if(document.getElementById('thrustUnitsStandard').checked) {
+      return unitLabels.poundsForce;
+    } else if(document.getElementById('thrustUnitsMetric').checked) {
+      return unitLabels.newtons;
+    }
   }
 
   render() {
@@ -70,53 +112,62 @@ export class Inputs extends Component {
           <label htmlFor='width' className='input-label'>Width</label>
           <input id='width' type='number' className='form-control input-field'
             onChange={() => this.saveInputsToState()} value={this.props.width} />
-          <select id='widthUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveInputsToState()} value={this.props.widthUnits}>
-            <option value={unitLabels.feet}>ft</option>
-            <option value={unitLabels.inches}>in</option>
-            <option value={unitLabels.meters}>m</option>
-            <option value={unitLabels.centimeters}>cm</option>
-          </select>
+          <span className='toggle'>
+            <input id='widthUnitsStandard' type='radio' name='width-units'
+                    onChange={() => this.saveInputsToState()} checked={this.props.widthUnits === unitLabels.feet} />
+            <label htmlFor='widthUnitsStandard' className='left-label'>{unitLabels.feet}</label>
+            <input id='widthUnitsMetric' type='radio' name='width-units'
+                    onChange={() => this.saveInputsToState()} checked={this.props.widthUnits === unitLabels.meters}/>
+            <label htmlFor='widthUnitsMetric' className='right-label'>{unitLabels.meters}</label>
+          </span>
           <br />
           <label htmlFor='length' className='input-label'>Length</label>
           <input id='length' type='number' className='form-control input-field'
             onChange={() => this.saveInputsToState()} value={this.props.length} />
-          <select id='lengthUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveInputsToState()} value={this.props.lengthUnits}>
-            <option value={unitLabels.feet}>ft</option>
-            <option value={unitLabels.inches}>in</option>
-            <option value={unitLabels.meters}>m</option>
-            <option value={unitLabels.centimeters}>cm</option>
-          </select>
+            <span className='toggle'>
+              <input id='lengthUnitsStandard' type='radio' name='length-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.lengthUnits === unitLabels.feet} />
+              <label htmlFor='lengthUnitsStandard' className='left-label'>{unitLabels.feet}</label>
+              <input id='lengthUnitsMetric' type='radio' name='length-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.lengthUnits === unitLabels.meters}/>
+              <label htmlFor='lengthUnitsMetric' className='right-label'>{unitLabels.meters}</label>
+            </span>
           <br />
           <label htmlFor='weight' className='input-label'>Weight</label>
           <input id='weight' type='number' className='form-control input-field'
             onChange={() => this.saveSlopeToState()} value={this.props.weight} />
-          <select id='weightUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveSlopeToState()} value={this.props.weightUnits}>
-            <option value={unitLabels.pounds}>lbs</option>
-            <option value={unitLabels.ounces}>oz</option>
-            <option value={unitLabels.kilograms}>kg</option>
-            <option value={unitLabels.grams}>g</option>
-          </select>
+            <span className='toggle'>
+              <input id='weightUnitsStandard' type='radio' name='weight-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.weightUnits === unitLabels.pounds} />
+              <label htmlFor='weightUnitsStandard' className='left-label'>{unitLabels.pounds}</label>
+              <input id='weightUnitsMetric' type='radio' name='weight-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.weightUnits === unitLabels.kilograms}/>
+              <label htmlFor='weightUnitsMetric' className='right-label'>{unitLabels.kilograms}</label>
+            </span>
           <br />
           <label htmlFor='desiredSlope' className='input-label'>Desired Slope</label>
           <input id='desiredSlope' type='number' className='form-control input-field'
             onChange={() => this.saveSlopeToState()} value={this.props.desiredSlope} />
-          <select id='desiredSlopeUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveSlopeToState()} value={this.props.desiredSlopeUnits}>
-            <option value={unitLabels.degrees}>degrees</option>
-            <option value={unitLabels.radians}>radians</option>
-          </select>
+            <span className='toggle'>
+              <input id='slopeUnitsStandard' type='radio' name='slope-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.desiredSlopeUnits === unitLabels.degrees} />
+              <label htmlFor='slopeUnitsStandard' className='left-label'>deg</label>
+              <input id='slopeUnitsMetric' type='radio' name='slope-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.desiredSlopeUnits === unitLabels.radians}/>
+              <label htmlFor='slopeUnitsMetric' className='right-label'>rad</label>
+            </span>
           <br />
           <label htmlFor='desiredThrust' className='input-label'>Desired Thrust</label>
           <input id='desiredThrust' type='number' className='form-control input-field'
             onChange={() => this.saveThrustToState()} value={this.props.desiredThrust} />
-          <select id='desiredThrustUnits' className='units-field form-control dropdown'
-            onChange={() => this.saveThrustToState()} value={this.props.desiredThrustUnits}>
-            <option value={unitLabels.poundsForce}>lbs</option>
-            <option value={unitLabels.newtons}>N</option>
-          </select>
+            <span className='toggle'>
+              <input id='thrustUnitsStandard' type='radio' name='thrust-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.desiredThrustUnits === unitLabels.poundsForce} />
+              <label htmlFor='thrustUnitsStandard' className='left-label'>{unitLabels.poundsForce}</label>
+              <input id='thrustUnitsMetric' type='radio' name='thrust-units'
+                      onChange={() => this.saveInputsToState()} checked={this.props.desiredThrustUnits === unitLabels.newtons}/>
+              <label htmlFor='thrustUnitsMetric' className='right-label'>{unitLabels.newtons}</label>
+            </span>
         </form>
       </div>
     );

@@ -1,0 +1,36 @@
+.toggle {
+  border: 1px solid;
+  border-radius: 40px;
+  height: 33px;
+  margin-left: 10px;
+  position: absolute;
+  width: 95px;
+
+  input[type=radio] {
+    display: none;
+  }
+
+  input[type=radio]:checked + label {
+    background-color: #2080ec;
+    color: white;
+  }
+
+  label {
+    border-radius: 40px;
+    height: 25px;
+    padding-top: 2px;
+    position: absolute;
+    text-align: center;
+    top: 3px;
+    vertical-align: 2px;
+    width: 40px;
+  }
+
+  .left-label {
+    left: 3px;
+  }
+
+  .right-label {
+    right: 3px;
+  }
+}
