@@ -150,10 +150,10 @@ export class Inputs extends Component {
             onChange={() => this.saveSlopeToState()} value={this.props.desiredSlope} />
             <span className='toggle'>
               <input id='slopeUnitsStandard' type='radio' name='slope-units'
-                      onChange={() => this.saveInputsToState()} checked={this.props.desiredSlopeUnits === unitLabels.degrees} />
+                      onChange={() => this.saveSlopeToState()} checked={this.props.desiredSlopeUnits === unitLabels.degrees} />
               <label htmlFor='slopeUnitsStandard' className='left-label'>deg</label>
               <input id='slopeUnitsMetric' type='radio' name='slope-units'
-                      onChange={() => this.saveInputsToState()} checked={this.props.desiredSlopeUnits === unitLabels.radians}/>
+                      onChange={() => this.saveSlopeToState()} checked={this.props.desiredSlopeUnits === unitLabels.radians}/>
               <label htmlFor='slopeUnitsMetric' className='right-label'>rad</label>
             </span>
           <br />
@@ -162,10 +162,10 @@ export class Inputs extends Component {
             onChange={() => this.saveThrustToState()} value={this.props.desiredThrust} />
             <span className='toggle'>
               <input id='thrustUnitsStandard' type='radio' name='thrust-units'
-                      onChange={() => this.saveInputsToState()} checked={this.props.desiredThrustUnits === unitLabels.poundsForce} />
+                      onChange={() => this.saveThrustToState()} checked={this.props.desiredThrustUnits === unitLabels.poundsForce} />
               <label htmlFor='thrustUnitsStandard' className='left-label'>{unitLabels.poundsForce}</label>
               <input id='thrustUnitsMetric' type='radio' name='thrust-units'
-                      onChange={() => this.saveInputsToState()} checked={this.props.desiredThrustUnits === unitLabels.newtons}/>
+                      onChange={() => this.saveThrustToState()} checked={this.props.desiredThrustUnits === unitLabels.newtons}/>
               <label htmlFor='thrustUnitsMetric' className='right-label'>{unitLabels.newtons}</label>
             </span>
         </form>
