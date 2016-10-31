@@ -115,10 +115,10 @@ export class Inputs extends Component {
           <span className='toggle'>
             <input id='widthUnitsStandard' type='radio' name='width-units'
                     onChange={() => this.saveInputsToState()} checked={this.props.widthUnits === unitLabels.feet} />
-            <label htmlFor='widthUnitsStandard' className='left-label'>{unitLabels.feet}</label>
+            <label htmlFor='widthUnitsStandard'>{unitLabels.feet}</label>
             <input id='widthUnitsMetric' type='radio' name='width-units'
                     onChange={() => this.saveInputsToState()} checked={this.props.widthUnits === unitLabels.meters}/>
-            <label htmlFor='widthUnitsMetric' className='right-label'>{unitLabels.meters}</label>
+            <label htmlFor='widthUnitsMetric'>{unitLabels.meters}</label>
           </span>
           <br />
           <label htmlFor='length' className='input-label'>Length</label>
@@ -127,10 +127,10 @@ export class Inputs extends Component {
             <span className='toggle'>
               <input id='lengthUnitsStandard' type='radio' name='length-units'
                       onChange={() => this.saveInputsToState()} checked={this.props.lengthUnits === unitLabels.feet} />
-              <label htmlFor='lengthUnitsStandard' className='left-label'>{unitLabels.feet}</label>
+              <label htmlFor='lengthUnitsStandard'>{unitLabels.feet}</label>
               <input id='lengthUnitsMetric' type='radio' name='length-units'
                       onChange={() => this.saveInputsToState()} checked={this.props.lengthUnits === unitLabels.meters}/>
-              <label htmlFor='lengthUnitsMetric' className='right-label'>{unitLabels.meters}</label>
+              <label htmlFor='lengthUnitsMetric'>{unitLabels.meters}</label>
             </span>
           <br />
           <label htmlFor='weight' className='input-label'>Weight</label>
@@ -139,10 +139,10 @@ export class Inputs extends Component {
             <span className='toggle'>
               <input id='weightUnitsStandard' type='radio' name='weight-units'
                       onChange={() => this.saveInputsToState()} checked={this.props.weightUnits === unitLabels.pounds} />
-              <label htmlFor='weightUnitsStandard' className='left-label'>{unitLabels.pounds}</label>
+              <label htmlFor='weightUnitsStandard'>{unitLabels.pounds}</label>
               <input id='weightUnitsMetric' type='radio' name='weight-units'
                       onChange={() => this.saveInputsToState()} checked={this.props.weightUnits === unitLabels.kilograms}/>
-              <label htmlFor='weightUnitsMetric' className='right-label'>{unitLabels.kilograms}</label>
+              <label htmlFor='weightUnitsMetric'>{unitLabels.kilograms}</label>
             </span>
           <br />
           <label htmlFor='desiredSlope' className='input-label'>Desired Slope</label>
@@ -151,10 +151,10 @@ export class Inputs extends Component {
             <span className='toggle'>
               <input id='slopeUnitsStandard' type='radio' name='slope-units'
                       onChange={() => this.saveSlopeToState()} checked={this.props.desiredSlopeUnits === unitLabels.degrees} />
-              <label htmlFor='slopeUnitsStandard' className='left-label'>deg</label>
+              <label htmlFor='slopeUnitsStandard'>deg</label>
               <input id='slopeUnitsMetric' type='radio' name='slope-units'
                       onChange={() => this.saveSlopeToState()} checked={this.props.desiredSlopeUnits === unitLabels.radians}/>
-              <label htmlFor='slopeUnitsMetric' className='right-label'>rad</label>
+              <label htmlFor='slopeUnitsMetric'>rad</label>
             </span>
           <br />
           <label htmlFor='desiredThrust' className='input-label'>Desired Thrust</label>
@@ -163,10 +163,10 @@ export class Inputs extends Component {
             <span className='toggle'>
               <input id='thrustUnitsStandard' type='radio' name='thrust-units'
                       onChange={() => this.saveThrustToState()} checked={this.props.desiredThrustUnits === unitLabels.poundsForce} />
-              <label htmlFor='thrustUnitsStandard' className='left-label'>{unitLabels.poundsForce}</label>
+              <label htmlFor='thrustUnitsStandard'>{unitLabels.poundsForce}</label>
               <input id='thrustUnitsMetric' type='radio' name='thrust-units'
                       onChange={() => this.saveThrustToState()} checked={this.props.desiredThrustUnits === unitLabels.newtons}/>
-              <label htmlFor='thrustUnitsMetric' className='right-label'>{unitLabels.newtons}</label>
+              <label htmlFor='thrustUnitsMetric'>{unitLabels.newtons}</label>
             </span>
         </form>
       </div>
